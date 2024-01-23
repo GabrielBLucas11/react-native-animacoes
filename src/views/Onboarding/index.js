@@ -5,6 +5,7 @@ import { TelaDeFundo } from '../../components/TelaDeFundo';
 import { Formulario } from '../../components/Formulario';
 import itens from './cards';
 import styles from './styles';
+import { Carrossel } from '../../components/Carrossel';
 
 export default function Onboarding({ navigation }) {
   const [fazerLogin, setFazerLogin] = useState(false);
@@ -30,19 +31,8 @@ export default function Onboarding({ navigation }) {
 
         <View style={styles.carrosselArea}>
           {!fazerLogin && (
-            <FlatList
-              data={itens}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              keyExtractor={item => item.id}
-              renderItem={({ item }) => (
-                <Image
-                  source={item.imagem}
-                  style={{ height: '100%', width: 150 }}
-                  resizeMode="contain"
-                />
-              )}
-            />)}
+            <Carrossel data={itens} tempoAnimacao={2500}/>
+            )}
         </View>
         <Image
           source={require('../../assets/medica.png')}
